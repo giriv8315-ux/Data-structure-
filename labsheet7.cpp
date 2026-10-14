@@ -12,7 +12,7 @@ struct Node {
     }
 };
 
-// 8. Create Tree
+// 1. Create Tree
 Node* createTree() {
     Node* root = new Node(10);
     root->left = new Node(5);
@@ -20,7 +20,7 @@ Node* createTree() {
     return root;
 }
 
-// 9. Inorder Traversal
+// 2. Inorder Traversal
 void inorder(Node* root) {
     if (root == NULL) return;
     inorder(root->left);
@@ -28,7 +28,7 @@ void inorder(Node* root) {
     inorder(root->right);
 }
 
-// 10. Preorder Traversal
+// 3. Preorder Traversal
 void preorder(Node* root) {
     if (root == NULL) return;
     cout << root->data << " ";
@@ -36,7 +36,7 @@ void preorder(Node* root) {
     preorder(root->right);
 }
 
-// 11. Postorder Traversal
+// 4. Postorder Traversal
 void postorder(Node* root) {
     if (root == NULL) return;
     postorder(root->left);
@@ -44,7 +44,7 @@ void postorder(Node* root) {
     cout << root->data << " ";
 }
 
-// 12. All 3 Traversals
+// 5. All 3 Traversals
 void allTraversals(Node* root) {
     cout << "\nInorder: "; inorder(root);
     cout << "\nPreorder: "; preorder(root);
@@ -52,7 +52,7 @@ void allTraversals(Node* root) {
     cout << "\n";
 }
 
-// 13 & 15. Insert in BST
+// 6 & 7. Insert in BST
 Node* insertBST(Node* root, int val) {
     if (root == NULL) return new Node(val);
     if (val < root->data) root->left = insertBST(root->left, val);
@@ -60,7 +60,7 @@ Node* insertBST(Node* root, int val) {
     return root;
 }
 
-// 14. Search in BST
+// 8. Search in BST
 bool searchBST(Node* root, int key) {
     if (root == NULL) return false;
     if (root->data == key) return true;
@@ -74,7 +74,8 @@ Node* getMin(Node* root) {
     return root;
 }
 
-// 16, 17, 18. Delete in BST (Leaf, 1 Child, 2 Children)
+// 9
+, 10, 11. Delete in BST (Leaf, 1 Child, 2 Children)
 Node* deleteBST(Node* root, int key) {
     if (root == NULL) return NULL;
     if (key < root->data) root->left = deleteBST(root->left, key);
@@ -98,7 +99,7 @@ Node* deleteBST(Node* root, int key) {
     return root;
 }
 
-// 19. Height of Tree
+// 12. Height of Tree
 int height(Node* root) {
     if (root == NULL) return 0;
     int lh = height(root->left);
@@ -106,20 +107,20 @@ int height(Node* root) {
     return 1 + (lh > rh ? lh : rh);
 }
 
-// 20. Count Total Nodes
+// 13. Count Total Nodes
 int countNodes(Node* root) {
     if (root == NULL) return 0;
     return 1 + countNodes(root->left) + countNodes(root->right);
 }
 
-// 21. Count Leaf Nodes
+// 14. Count Leaf Nodes
 int countLeaf(Node* root) {
     if (root == NULL) return 0;
     if (root->left == NULL && root->right == NULL) return 1;
     return countLeaf(root->left) + countLeaf(root->right);
 }
 
-// 22. Menu-driven Program
+// 15. Menu-driven Program
 int main() {
     Node* root = NULL;
     int choice, val;
